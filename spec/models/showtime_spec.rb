@@ -4,22 +4,25 @@ describe Showtime do
   let(:showtime){ build(:showtime) }
 
   describe "Associations" do
-    xit "belongs to a movie" do
-
+    it "belongs to a movie" do
+      expect(showtime.movie).to be_an_instance_of Movie
     end
 
-    xit "belongs to a screen" do
-
+    it "belongs to a screen" do
+      expect(showtime.screen).to be_an_instance_of Screen
     end
 
     xit "has many tickets" do
-
+      # TODO Implement Ticket models
+      screen.tickets.each do |ticket|
+        expect(ticket).to be_an_instance_of Ticket
+      end
     end
   end
 
   describe "Attributes" do
-    xit "has a time" do
-
+    it "has a time" do
+      expect(showtime.time).to be_an_instance_of Time
     end
   end
 end
