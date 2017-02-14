@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Movie do
-
   let(:title){ Faker::Book.title }
   let(:description){ Faker::Lorem.paragraph(4) }
   let(:movie){ build(:movie, title: title, description: description) }
