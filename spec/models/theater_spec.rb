@@ -6,11 +6,11 @@ describe Theater do
 	let(:theater) { build(:theater, address: address, name: name) }
 
   describe "Attributes" do
-    it "has a readable name" do
+    it "has a name" do
       expect(theater.name).to eq name
     end
 
-    it "has a readable address" do
+    it "has an address" do
       expect(theater.address).to eq address
     end
   end

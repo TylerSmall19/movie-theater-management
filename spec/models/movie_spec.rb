@@ -7,11 +7,11 @@ describe Movie do
   let(:movie){ build(:movie, title: title, description: description) }
 
   describe "Attributes" do
-    it "has a readable title" do
+    it "has a title" do
       expect(movie.title).to eq title
     end
 
-    it "has a readable description" do
+    it "has a description" do
       expect(movie.description).to eq description
     end
   end

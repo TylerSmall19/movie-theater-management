@@ -12,6 +12,14 @@ describe Screen do
     it "belongs to a theater" do
       expect(screen.theater).to be_an_instance_of Theater
     end
+
+    it "has many showtimes" do
+      4.times { screen.showtimes << build(:showtime) }
+      expect(screen.showtimes).to_not be nil
+      screen.showtimes.each do |showtime|
+        expect(showtime).to be_an_instance_of Showtime
+      end
+    end
   end
 
   describe "Attributes" do
