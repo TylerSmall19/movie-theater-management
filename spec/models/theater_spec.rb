@@ -3,12 +3,15 @@ require 'rails_helper'
 describe Theater do
   let(:address) { Faker::Address.street_address }
   let(:name){ Faker::Company.name }
-	let(:t) { Theater.create!(address: address, name: name) }
+	let(:theater) { build(:theater, address: address, name: name) }
 
-  describe "attributes" do
-    it "has a readable name and address" do
-      expect(t.name).to eq name
-      expect(t.address).to eq address
+  describe "Attributes" do
+    it "has a name" do
+      expect(theater.name).to eq name
+    end
+
+    it "has an address" do
+      expect(theater.address).to eq address
     end
   end
 end
