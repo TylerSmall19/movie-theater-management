@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe Theater do
-	context "When valid data is given" do
-		it "persists to the data base" do
-			t = Theater.create!(address: )
-			expect(t.persisted?)
+	describe "associations" do		
+		let(:t) { Theater.create(address: Faker::Address.street_address) }
+
+		it "can have many screens" do
+			4.times { t.screens << Screen.new }
+			expect(t.screens.length).to be 4
 		end
 	end
 end
