@@ -13,4 +13,20 @@ describe Screen do
       expect(s.theater).to be_an_instance_of Theater
     end
   end
+
+  describe "Attributes" do
+    it "has an optional description" do
+      expect(s.description).to be nil
+      s.description = "Desc"
+      expect(s.description).to eq "Desc"
+    end
+
+    it "has a number" do
+      expect(s.number).to be 100
+    end
+
+    it "has a capacity" do
+      expect(s.capacity).to be 125
+    end
+  end
 end
