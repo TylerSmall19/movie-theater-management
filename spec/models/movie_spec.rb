@@ -4,11 +4,14 @@ describe Movie do
 
   let(:title){ Faker::Book.title }
   let(:description){ Faker::Lorem.paragraph(4) }
-  let(:m){ Movie.create!(title: title, description: description) }
+  let(:m){ build(:movie, title: title, description: description) }
 
   describe "Attributes" do
-    it "has readable title and description" do
+    it "has readable title" do
       expect(m.title).to eq title
+    end
+
+    it "has readable description" do
       expect(m.description).to eq description
     end
   end
