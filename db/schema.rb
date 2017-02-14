@@ -60,7 +60,8 @@ ActiveRecord::Schema.define(version: 20170214003927) do
   add_index "showtimes", ["screen_id"], name: "index_showtimes_on_screen_id", using: :btree
 
   create_table "theaters", force: :cascade do |t|
-    t.string   "address"
+    t.string   "address",    null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
