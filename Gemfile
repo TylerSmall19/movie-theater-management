@@ -37,6 +37,8 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'faker'
+  # Factorygirl to build mock objects
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
