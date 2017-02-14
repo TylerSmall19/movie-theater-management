@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 describe Screen do
+  let(:s){ build(:screen) }
+
   describe "Associations" do
     it "belongs to a movie" do
-
+      s.movie = build(:movie)
+      expect(s.movie).to be_an_instance_of Movie
     end
-  end
 
-  it "has a passing test" do
-    expect(true)
-  end
-
-  it "has a failing test" do
-    expect(true).to be false
+    it "belongs to a theater" do
+      expect(s.theater).to be_an_instance_of Theater
+    end
   end
 end
