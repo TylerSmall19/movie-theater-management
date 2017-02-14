@@ -17,18 +17,18 @@ ActiveRecord::Schema.define(version: 20170214003927) do
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "credit_card"
-    t.date     "expiration"
-    t.integer  "showtime_id"
+    t.string   "email",       null: false
+    t.string   "name",        null: false
+    t.string   "credit_card", null: false
+    t.date     "expiration",  null: false
+    t.integer  "showtime_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20170214003927) do
   add_index "orders", ["showtime_id"], name: "index_orders_on_showtime_id", using: :btree
 
   create_table "screens", force: :cascade do |t|
-    t.integer  "theater_id"
+    t.integer  "theater_id",  null: false
     t.integer  "movie_id"
-    t.integer  "number"
-    t.integer  "capacity"
+    t.integer  "number",      null: false
+    t.integer  "capacity",    null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20170214003927) do
   add_index "screens", ["theater_id"], name: "index_screens_on_theater_id", using: :btree
 
   create_table "showtimes", force: :cascade do |t|
-    t.integer  "movie_id"
-    t.time     "time"
-    t.integer  "screen_id"
+    t.integer  "movie_id",   null: false
+    t.time     "time",       null: false
+    t.integer  "screen_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
