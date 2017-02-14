@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 describe Screen do
-  let(:screen){ build(:screen) }
+  let(:screen){ build(:screen, movie: build(:movie)) }
 
   describe "Associations" do
     it "belongs to a movie" do
-      screen.movie = build(:movie)
       expect(screen.movie).to be_an_instance_of Movie
     end
 
