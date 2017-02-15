@@ -1,17 +1,12 @@
 require 'rails_helper'
 
 describe Movie do
-  let(:title){ Faker::Book.title }
-  let(:description){ Faker::Lorem.paragraph(4) }
-  let(:movie){ build(:movie, title: title, description: description) }
-
   describe "Attributes" do
-    it "has a title" do
-      expect(movie.title).to eq title
-    end
+    it { is_expected.to validate_presence_of :title }
+    it { is_expected.to validate_presence_of :description }
+  end
 
-    it "has a description" do
-      expect(movie.description).to eq description
-    end
+  describe "Associations" do
+    it { is_expected.to have_many :showtimes }
   end
 end

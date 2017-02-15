@@ -1,0 +1,10 @@
+<h3 class="movie-header">
+  <%= movie.title %>
+</h3>
+
+<p class="movie-description">
+  <%= movie.description %>
+</p>
+
+<%= link_to "Read About This Movie", movie_path(movie), {class: "movie-link"} %>
+<%= link_to "See Available Tickets", movie_tickets_path(movie), { class: "ticket-link" } %>
