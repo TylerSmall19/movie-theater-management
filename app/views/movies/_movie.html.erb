@@ -6,4 +6,5 @@
   <%= movie.description %>
 </p>
 
-<%= link_to "See Available Tickets", movie_path(movie), { class: "ticket-button" } %>
+<%= link_to "Read About This Movie", movie_path(movie), {class: "movie-link"} %>
+<%= link_to "See Available Tickets", movie_tickets_path(movie), { class: "ticket-link" } %>
