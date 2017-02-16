@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :showtime
+  has_many :tickets
 
   validates :email,
             :name,
@@ -7,4 +8,8 @@ class Order < ActiveRecord::Base
             :expiration,
             :showtime,
             { presence: true }
+
+  def last_four_of_card
+    credit_card[-4..-1]
+  end
 end
