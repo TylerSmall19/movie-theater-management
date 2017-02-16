@@ -6,6 +6,7 @@ describe Showtime do
     it { is_expected.to belong_to :movie }
 
     it { is_expected.to have_many :tickets }
+    it { is_expected.to have_many :orders }
   end
 
   describe "Attributes" do
