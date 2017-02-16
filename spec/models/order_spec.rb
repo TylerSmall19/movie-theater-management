@@ -9,5 +9,6 @@ describe Order do
 
   describe "Associations" do
     it { is_expected.to belong_to :showtime }
+    it { is_expected.to have_many :tickets }
   end
 end
