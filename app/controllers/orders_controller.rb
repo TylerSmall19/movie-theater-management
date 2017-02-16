@@ -7,9 +7,6 @@ class OrdersController < ApplicationController
     @showtime = Showtime.find_by(id: params[:showtime_id])
     order = @showtime.orders.build(order_params)
 
-    ticket = order.tickets.build(price: 10.0)
-    ticket.save
-    p ticket.errors
     if order.save
       redirect_to [@showtime, order]
     else
