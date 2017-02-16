@@ -1,8 +1,9 @@
-Theater.destroy_all
-Movie.destroy_all
+Order.destroy_all
 Showtime.destroy_all
 Screen.destroy_all
+Theater.destroy_all
 Ticket.destroy_all
+Movie.destroy_all
 
 Theater.create!(
   address: Faker::Address.street_address,
@@ -27,7 +28,8 @@ Movie.all.each do |movie|
     Showtime.create!(
        movie: movie,
         time: Time.now,
-      screen: Screen.all[x]
+      screen: Screen.all[x],
+      price: 10.0
       )
   end
 end
