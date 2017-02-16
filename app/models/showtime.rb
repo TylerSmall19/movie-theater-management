@@ -4,7 +4,7 @@ class Showtime < ActiveRecord::Base
   has_many :orders
   has_many :tickets, through: :orders
 
-  validates :time, :movie, :screen, presence: true
+  validates :time, :movie, :screen, :price, presence: true
 
   def pretty_time
     time.getlocal.strftime("%I:%M %p")

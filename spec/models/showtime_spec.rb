@@ -13,5 +13,6 @@ describe Showtime do
     it { is_expected.to validate_presence_of :time }
     it { is_expected.to validate_presence_of :movie }
     it { is_expected.to validate_presence_of :screen }
+    it { is_expected.to validate_presence_of :price }
   end
 end
