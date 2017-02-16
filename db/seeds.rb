@@ -32,13 +32,14 @@ Movie.all.each do |movie|
   end
 end
 
-Showtime.all.each do |showtime|
-  # Only has as many tickets as it has seating capacity
-  showtime.screen.capacity.times do
-    showtime.tickets.create!(
-      price: 10.00,
-       name: Faker::Name.name,
-      email: Faker::Internet.email
-      )
-  end
-end
+# TODO Refactor for orders
+# Showtime.all.each do |showtime|
+#   # Only has as many tickets as it has seating capacity
+#   showtime.screen.capacity.times do
+#     showtime.tickets.create!(
+#       price: 10.00,
+#        name: Faker::Name.name,
+#       email: Faker::Internet.email
+#       )
+#   end
+# end
