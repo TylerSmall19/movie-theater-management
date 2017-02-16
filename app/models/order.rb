@@ -12,4 +12,8 @@ class Order < ActiveRecord::Base
   def last_four_of_card
     credit_card[-4..-1]
   end
+
+  def total
+    tickets.sum(:price)
+  end
 end
