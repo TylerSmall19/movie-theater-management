@@ -15,6 +15,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    @order = Order.find_by(id: params[:order_id])
+  end
+
   private
   def order_params
     params.require(:order).permit(
