@@ -1,12 +1,19 @@
 class OrdersController < ApplicationController
   def new
-    @showtime=Showtime.find_by(id: params[:showtime_id])
+    @showtime = Showtime.find_by(id: params[:showtime_id])
   end
 
   def create
-    order = Order.new(order_params)
-    redirect_to root if order.valid?
-    redirect_back
+    @showtime = Showtime.find_by(id: params[:showtime_id])
+    order = @showtime.orders.build(order_params)
+    order.date = params[:date]
+
+    if order.save
+      redirect_to [@showtime, order]
+    else
+      @errors = order.errors.full_messages
+      render :new
+    end
   end
 
   private
@@ -15,7 +22,7 @@ class OrdersController < ApplicationController
                             :email,
                             :name,
                             :credit_card,
-                            :expiration,
+                            :date,
                             :showtime
                           )
   end
