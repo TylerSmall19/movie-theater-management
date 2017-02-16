@@ -4,4 +4,8 @@ class Showtime < ActiveRecord::Base
   has_many :tickets
 
   validates :time, :movie, :screen, presence: true
+
+  def pretty_time
+    time.strftime("%I:%M %p")
+  end
 end
