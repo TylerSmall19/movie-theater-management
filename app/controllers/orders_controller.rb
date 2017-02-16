@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   def create
     @showtime = Showtime.find_by(id: params[:showtime_id])
     order = @showtime.orders.build(order_params)
-    order.date = params[:date]
 
     if order.save
       redirect_to [@showtime, order]
@@ -22,8 +21,8 @@ class OrdersController < ApplicationController
                             :email,
                             :name,
                             :credit_card,
-                            :date,
-                            :showtime
+                            :showtime,
+                            :expiration
                           )
   end
 end

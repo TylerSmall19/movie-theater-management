@@ -7,8 +7,4 @@ class Order < ActiveRecord::Base
             :expiration,
             :showtime,
             { presence: true }
-
-  def date=(new_date)
-    self.expiration = Time.new(new_date[:year], new_date[:month])
-  end
 end

@@ -26,8 +26,12 @@
   <%= f.text_field :credit_card %>
   <br>
   <%= f.label :expiration %> <br>
-  <%= select_year(Time.now, start_year: Time.now.year, end_year: Time.now.year + 20) %>
-  <%= select_month(Time.now) %>
+  <%= date_select :order,
+                  :expiration,
+                  start_year: Time.now.year,
+                  end_year: Time.now.year + 20,
+                  # Ignore day from CC expiration
+                  discard_day: true %>
   <br> <br>
   <%= f.submit "Buy Ticket" %>
 <% end %>
