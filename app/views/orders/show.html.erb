@@ -6,7 +6,7 @@
 
 <p> Order Number: <%= @order.id %> </p>
 
-<p> Total Paid: <%= @order.total %> </p>
+<p> Total Paid: <%= number_to_currency @order.total %> </p>
 
 <p> Card used: <%= @order.last_four_of_card %> </p>
 

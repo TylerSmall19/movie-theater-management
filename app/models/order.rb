@@ -14,6 +14,6 @@ class Order < ActiveRecord::Base
   end
 
   def total
-    tickets.sum(:price)
+    showtime.price
   end
 end
