@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170216211612) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",       null: false
-    t.text     "description"
+    t.text     "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20170216211612) do
 
   create_table "showtimes", force: :cascade do |t|
     t.integer  "movie_id",   null: false
-    t.time     "time",       null: false
     t.integer  "screen_id",  null: false
+    t.time     "time",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,17 +67,13 @@ ActiveRecord::Schema.define(version: 20170216211612) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.float    "price",       null: false
-    t.integer  "showtime_id", null: false
-    t.string   "name",        null: false
-    t.string   "email",       null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "order_id",    null: false
+    t.float    "price",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id",   null: false
   end
 
   add_index "tickets", ["order_id"], name: "index_tickets_on_order_id", using: :btree
-  add_index "tickets", ["showtime_id"], name: "index_tickets_on_showtime_id", using: :btree
 
   add_foreign_key "orders", "showtimes"
   add_foreign_key "screens", "movies"
@@ -85,5 +81,4 @@ ActiveRecord::Schema.define(version: 20170216211612) do
   add_foreign_key "showtimes", "movies"
   add_foreign_key "showtimes", "screens"
   add_foreign_key "tickets", "orders"
-  add_foreign_key "tickets", "showtimes"
 end
