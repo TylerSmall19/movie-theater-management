@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216211612) do
+ActiveRecord::Schema.define(version: 20170216224004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170216211612) do
     t.integer  "showtime_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "price"
   end
 
   add_index "orders", ["showtime_id"], name: "index_orders_on_showtime_id", using: :btree
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170216211612) do
     t.time     "time",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "price"
   end
 
   add_index "showtimes", ["movie_id"], name: "index_showtimes_on_movie_id", using: :btree
