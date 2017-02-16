@@ -1,0 +1,37 @@
+<h1><%= @showtime.movie.title %></h1>
+
+<p> <%= @showtime.movie.description %> </p>
+
+<p>
+  <span> Showtime: </span> <%= @showtime.pretty_time %> |
+  <span> Tickets Available: </span> <%= @showtime.tickets.length %>
+</p>
+
+<h3> Buy Tickets: </h3>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= render partial: "shared/error", locals: { error: error } %>
+  <% end %>
+<% end %>
+
+<%= form_for [@showtime, Order.new] do |f| %>
+  <%= f.label :name %> <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %> <br>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :credit_card %> <br>
+  <%= f.text_field :credit_card %>
+  <br>
+  <%= f.label :expiration %> <br>
+  <%= date_select :order,
+                  :expiration,
+                  start_year: Time.now.year,
+                  end_year: Time.now.year + 20,
+                  # Ignore day from CC expiration
+                  discard_day: true %>
+  <br> <br>
+  <%= f.submit "Buy Ticket" %>
+<% end %>

@@ -1,5 +1,6 @@
 <tr>
   <td> <%= showtime.pretty_time %> </td>
-  <td> <%= showtime.tickets.count %> </td>
-  <td> <%= link_to "Buy Ticket", movie_showtime_path(showtime.movie, showtime) %>
+  <td> <%= showtime.tickets_left %> </td>
+  <td> <%= number_to_currency showtime.price %> </td>
+  <td> <%= link_to "Buy Tickets", new_showtime_order_path(showtime) %>
 </tr>

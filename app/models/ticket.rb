@@ -1,4 +1,6 @@
 class Ticket < ActiveRecord::Base
   belongs_to :showtime
-  validates :price, :showtime, :name, :email, presence: true
+  belongs_to :order
+
+  validates :price, :order, presence: true
 end
