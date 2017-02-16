@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # Allow nested ticket routes without plain /showtimes/:id, /showtimes, etc.
   resources :showtimes, only: [] do
-    resources :orders, as: :orders
+    resources :orders
     resources :tickets, only: [:show, :update]
   end
 end
