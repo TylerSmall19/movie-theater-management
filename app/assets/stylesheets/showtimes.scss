@@ -1,0 +1,26 @@
+// Place all the styles related to the showtimes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.movie-title {
+  font-style: italic;
+  color: chocolate;
+}
+
+.showtime-header {
+  text-align: center;
+}
+
+.showtime-info-table {
+  margin: 35px auto;
+}
+
+.showtime-info-table tr {
+  text-align: center;
+  padding: 10px;
+}
+
+.showtime-info-table td, th {
+  padding-left: 10px;
+  padding-right: 10px;
+}

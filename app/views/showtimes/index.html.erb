@@ -1,0 +1,23 @@
+<h1 class="showtime-header">
+  Showtimes for <span class="movie-title"> <%= @showtimes.first.movie.title %> </span>
+</h1>
+
+<table class="showtime-info-table">
+  <tr>
+    <th>
+      Show Time
+    </th>
+    <th>
+      Tickets Left
+    </th>
+    <th>
+      Ticket Price
+    </th>
+    <th>
+      Buy
+    </th>
+  </tr>
+  <% @showtimes.each do |showtime| %>
+    <%= render partial: 'showtime_row', locals: { showtime: showtime } %>
+  <% end %>
+</table>

@@ -1,0 +1,13 @@
+<h1> Order Confirmation </h1>
+
+<p> Movie: <%= @order.showtime.movie.title %> | Showtime: <%= @order.showtime.pretty_time %> </p>
+
+<h3> You should receive a confirmation email shortly. </h3>
+
+<p> Order Number: <%= @order.id %> </p>
+
+<p> Total Paid: <%= number_to_currency @order.total %> </p>
+
+<p> Card used: <%= @order.last_four_of_card %> </p>
+
+<p> Please keep this page for your records. </p>

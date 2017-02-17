@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214003927) do
+ActiveRecord::Schema.define(version: 20170216224004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",       null: false
-    t.text     "description"
+    t.text     "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170214003927) do
     t.integer  "showtime_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "price"
   end
 
   add_index "orders", ["showtime_id"], name: "index_orders_on_showtime_id", using: :btree
@@ -50,10 +51,11 @@ ActiveRecord::Schema.define(version: 20170214003927) do
 
   create_table "showtimes", force: :cascade do |t|
     t.integer  "movie_id",   null: false
-    t.time     "time",       null: false
     t.integer  "screen_id",  null: false
+    t.time     "time",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "price"
   end
 
   add_index "showtimes", ["movie_id"], name: "index_showtimes_on_movie_id", using: :btree
@@ -66,9 +68,19 @@ ActiveRecord::Schema.define(version: 20170214003927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.float    "price",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id",   null: false
+  end
+
+  add_index "tickets", ["order_id"], name: "index_tickets_on_order_id", using: :btree
+
   add_foreign_key "orders", "showtimes"
   add_foreign_key "screens", "movies"
   add_foreign_key "screens", "theaters"
   add_foreign_key "showtimes", "movies"
   add_foreign_key "showtimes", "screens"
+  add_foreign_key "tickets", "orders"
 end
