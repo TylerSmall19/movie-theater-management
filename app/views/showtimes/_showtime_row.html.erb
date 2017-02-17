@@ -2,5 +2,11 @@
   <td> <%= showtime.pretty_time %> </td>
   <td> <%= showtime.tickets_left %> </td>
   <td> <%= number_to_currency showtime.price %> </td>
-  <td> <%= link_to "Buy Tickets", new_showtime_order_path(showtime) %>
+  <td>
+    <% if showtime.tickets_left > 0 %>
+      <%= link_to "Buy Tickets", new_showtime_order_path(showtime) %>
+    <% else %>
+      Sold Out
+    <% end %>
+  </td>
 </tr>
