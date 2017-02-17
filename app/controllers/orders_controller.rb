@@ -1,16 +1,17 @@
 class OrdersController < ApplicationController
   def new
     @showtime = Showtime.find_by(id: params[:showtime_id])
+    @order = Order.new
   end
 
   def create
     @showtime = Showtime.find_by(id: params[:showtime_id])
-    order = @showtime.orders.build(order_params)
+    @order = @showtime.orders.build(order_params)
 
-    if order.save
-      redirect_to [@showtime, order]
+    if @order.save
+      redirect_to [@showtime, @order]
     else
-      @errors = order.errors.full_messages
+      @errors = @order.errors.full_messages
       render :new
     end
   end

@@ -9,6 +9,8 @@ class Order < ActiveRecord::Base
             :showtime,
             { presence: true }
 
+  validates :credit_card, credit_card_number: true
+
   validate :tickets_are_available
 
   def last_four_of_card
@@ -21,6 +23,7 @@ class Order < ActiveRecord::Base
 
   private
   def tickets_are_available
-    errors.add :tickets, "are sold out for this showtime." unless showtime.tickets_left > 0
+    # Safe guard against errors when no showtime is set
+    errors.add :tickets, "are sold out for this showtime." unless showtime && showtime.tickets_left > 0
   end
 end
