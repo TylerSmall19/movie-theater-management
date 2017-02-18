@@ -11,7 +11,10 @@ Theater.create!(
   )
 
 20.times do
-  Movie.create!(title: Faker::Book.title, description: Faker::Lorem.paragraph(4))
+  Movie.create!(
+          title: Faker::Book.title,
+    description: Faker::Lorem.paragraph(4)
+    )
 end
 
 10.times do |x|
@@ -39,10 +42,10 @@ Showtime.all.each do |showtime|
   cap = showtime.screen.capacity
   rand(cap + 1).times do
     showtime.orders.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
+             name: Faker::Name.name,
+            email: Faker::Internet.email,
       credit_card: CreditCardValidations::Factory.random(:visa),
-      expiration: Time.now
+       expiration: Time.now
       )
   end
 end
