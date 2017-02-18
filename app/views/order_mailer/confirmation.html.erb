@@ -1,7 +1,7 @@
 <h1>Thank you for your order, <%= @order.name %></h1>
 
 <p>
-  This is a confirmation of your purchase of a ticket for <i><%= @order.showtime.movie %></i> at <%= @order.showtime.pretty_time %>.
+  This is a confirmation of your purchase of a ticket for <i><%= @order.showtime.movie.title %></i> at <%= @order.showtime.pretty_time %>.
 </p>
 
 <p>
