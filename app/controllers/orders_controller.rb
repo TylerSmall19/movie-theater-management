@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @order = @showtime.orders.build(order_params)
 
     if @order.save
+      OrderMailer.confirmation(@order).deliver_later
       redirect_to [@showtime, @order]
     else
       @errors = @order.errors.full_messages

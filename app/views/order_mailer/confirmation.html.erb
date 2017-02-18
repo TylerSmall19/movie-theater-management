@@ -1,0 +1,13 @@
+<h1>Thank you for your order, <%= @order.name %></h1>
+
+<p>
+  This is a confirmation of your purchase of a ticket for <i><%= @order.showtime.movie.title %></i> at <%= @order.showtime.pretty_time %>.
+</p>
+
+<p>
+  This email will serve as your ticket. Please present this email for entry.
+</p>
+
+<p>Thanks for your order and have a great day!</p>
+
+<p> Order Number: <%= @order.id %> </p>
