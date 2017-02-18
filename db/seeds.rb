@@ -7,30 +7,33 @@ Movie.destroy_all
 
 Theater.create!(
   address: Faker::Address.street_address,
-     name: Faker::Company.name
-  )
+  name: Faker::Company.name
+)
 
 20.times do
-  Movie.create!(title: Faker::Book.title, description: Faker::Lorem.paragraph(4))
+  Movie.create!(
+    title: Faker::Book.title,
+    description: Faker::Lorem.paragraph(4)
+  )
 end
 
 10.times do |x|
   Screen.create!(
-      number: x+1,
+    number: x + 1,
     capacity: [100, 150, 125, 135, 175].sample,
-     theater: Theater.first,
-       movie: Movie.all[x]
-    )
+    theater: Theater.first,
+    movie: Movie.all[x]
+  )
 end
 
 Movie.all.each do |movie|
   5.times do |x|
     Showtime.create!(
       movie: movie,
-       time: Time.now,
-     screen: Screen.all[x],
+      time: Time.now,
+      screen: Screen.all[x],
       price: 10.0
-      )
+    )
   end
 end
 
@@ -43,6 +46,6 @@ Showtime.all.each do |showtime|
       email: Faker::Internet.email,
       credit_card: CreditCardValidations::Factory.random(:visa),
       expiration: Time.now
-      )
+    )
   end
 end
