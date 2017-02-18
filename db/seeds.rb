@@ -34,14 +34,15 @@ Movie.all.each do |movie|
   end
 end
 
-# TODO Refactor for orders
-# Showtime.all.each do |showtime|
-#   # Only has as many tickets as it has seating capacity
-#   showtime.screen.capacity.times do
-#     showtime.tickets.create!(
-#       price: 10.00,
-#        name: Faker::Name.name,
-#       email: Faker::Internet.email
-#       )
-#   end
-# end
+Showtime.all.each do |showtime|
+  # Random mix of seats open/Sold out
+  cap = showtime.screen.capacity
+  rand(cap + 1).times do
+    showtime.orders.create!(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      credit_card: CreditCardValidations::Factory.random(:visa),
+      expiration: Time.now
+      )
+  end
+end

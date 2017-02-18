@@ -6,6 +6,8 @@ class OrdersController < ApplicationController
 
   def create
     @showtime = Showtime.find_by(id: params[:showtime_id])
+    @tickets = @showtime.tickets_left
+
     @order = @showtime.orders.build(order_params)
 
     if @order.save
