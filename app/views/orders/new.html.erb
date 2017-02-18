@@ -4,7 +4,7 @@
 
 <p>
   <span> Showtime: </span> <%= @showtime.pretty_time %> |
-  <span> Tickets Available: </span> <%= @showtime.tickets_left %>
+  <span> Tickets Available: </span> <%= @tickets || @showtime.tickets_left %>
 </p>
 
 <h3> Buy Tickets: </h3>
