@@ -8,7 +8,6 @@ describe Order do
   end
 
   describe "#last_four_of_card" do
-
     it "Should display last four digits of CC" do
       order = build(:order)
       expect(order.last_four_of_card).to match order.credit_card[-4..-1]
