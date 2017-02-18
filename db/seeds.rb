@@ -26,12 +26,11 @@ end
   )
 end
 
-Movie.all.each do |movie|
+Screen.all.each do |screen|
   5.times do |x|
-    Showtime.create!(
-      movie: movie,
+    screen.showtimes.create!(
+      movie: Movie.all.sample,
       time: Time.now,
-      screen: Screen.all[x],
       price: 10.0
     )
   end
