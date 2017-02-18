@@ -19,7 +19,7 @@ end
 
 10.times do |x|
   Screen.create!(
-    number: x+1,
+    number: x + 1,
     capacity: [100, 150, 125, 135, 175].sample,
     theater: Theater.first,
     movie: Movie.all[x]
