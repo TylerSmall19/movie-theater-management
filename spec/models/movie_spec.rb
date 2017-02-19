@@ -8,5 +8,6 @@ describe Movie do
 
   describe "Associations" do
     it { is_expected.to have_many(:showtimes).dependent(:destroy) }
+    it { is_expected.to have_many(:screens).dependent(:nullify) }
   end
 end
