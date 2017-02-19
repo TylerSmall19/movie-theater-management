@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(id: params[:id])
   end
 
-  def edit 
+  def edit
     @movie = Movie.find_by(id: params[:id])
   end
 
