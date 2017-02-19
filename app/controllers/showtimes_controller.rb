@@ -4,8 +4,8 @@ class ShowtimesController < ApplicationController
   end
 
   def new
-    @movie = Movie.find_by(id: params[:movie_id])
-    @showtime = Showtime.new
+    @showtime = Movie.find_by(id: params[:movie_id])
+    .showtimes.build
   end
 
   def create
