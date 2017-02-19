@@ -11,3 +11,8 @@
 <br>
 
 <%= link_to "See Available Tickets", movie_showtimes_path(movie), { class: "ticket-link" } %>
+
+<br>
+
+<%= link_to "Edit Movie", edit_movie_path(movie) %> | 
+<%= link_to "Delete Movie", movie, method: :delete %>

@@ -5,8 +5,8 @@ describe Showtime do
     it { is_expected.to belong_to :screen }
     it { is_expected.to belong_to :movie }
 
-    it { is_expected.to have_many :tickets }
-    it { is_expected.to have_many :orders }
+    xit { is_expected.to have_many :tickets }
+    it { is_expected.to have_many(:orders).dependent(:nullify) }
   end
 
   describe "Attributes" do

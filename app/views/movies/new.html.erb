@@ -1,17 +1,3 @@
 <h1> Add A New Movie </h1>
 
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <%= render partial: '/shared/error', locals: {error: error} %>
-  <% end %>
-<% end %>
-
-<%= form_for Movie.new do |f| %>
-  <%= f.label :title %> <br>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :description %><br>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.submit "Add Movie", disable_with: 'Adding Movie...' %>
-<% end %>
+<%= render partial: "movie_form", locals: { movie: @movie, errors: @errors } %>
