@@ -35,6 +35,19 @@ class ShowtimesController < ApplicationController
     end
   end
 
+  def destroy
+    movie = Movie.find_by(id: params[:movie_id])
+    show = Showtime.find_by(id: params[:id])
+
+    show.destroy
+
+    if movie.showtimes.any?
+      redirect_to movie_showtimes_path(movie)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def showtime_params
