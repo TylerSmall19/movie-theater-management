@@ -1,0 +1,3 @@
+<h1> Edit <span class="movie-title"> <%= @movie.title %> </h1>
+
+<%= render partial: "movie_form", locals: { movie: @movie, errors: @errors } %>
