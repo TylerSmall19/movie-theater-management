@@ -28,10 +28,9 @@ ActiveRecord::Schema.define(version: 20170216224004) do
     t.string   "name",        null: false
     t.string   "credit_card", null: false
     t.date     "expiration",  null: false
-    t.integer  "showtime_id", null: false
+    t.integer  "showtime_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.float    "price"
   end
 
   add_index "orders", ["showtime_id"], name: "index_orders_on_showtime_id", using: :btree
