@@ -1,6 +1,7 @@
 class ShowtimesController < ApplicationController
   def index
-    @showtimes = Movie.find_by(id: params[:movie_id]).showtimes.order(:time)
+    @showtimes = Movie.find_by(id: params[:movie_id])
+                      .showtimes.order(:time)
   end
 
   def new
