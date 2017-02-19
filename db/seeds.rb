@@ -30,7 +30,7 @@ Screen.all.each do |screen|
   5.times do |x|
     screen.showtimes.create!(
       movie: Movie.all.sample,
-      time: Time.now,
+      time: x.hours.from_now.utc,
       price: 10.0
     )
   end
