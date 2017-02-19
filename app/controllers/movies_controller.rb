@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie
+      redirect_to new_movie_showtime_path @movie
     else
       @errors = @movie.errors.full_messages
       render :new
