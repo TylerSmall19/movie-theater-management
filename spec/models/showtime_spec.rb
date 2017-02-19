@@ -14,5 +14,7 @@ describe Showtime do
     it { is_expected.to validate_presence_of :movie }
     it { is_expected.to validate_presence_of :screen }
     it { is_expected.to validate_presence_of :price }
+
+    it { is_expected.to validate_numericality_of :price }
   end
 end
