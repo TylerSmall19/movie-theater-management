@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string     :name, null: false
       t.string     :credit_card, null: false
       t.date       :expiration, null: false
-      t.references :showtime, index: true, foreign_key: true, null: false
+      t.references :showtime, index: true, foreign_key: true
 
       t.timestamps null: false
     end
