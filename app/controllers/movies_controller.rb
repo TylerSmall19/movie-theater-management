@@ -9,6 +9,12 @@ class MoviesController < ApplicationController
 
   def new; end
 
+  def destroy
+    Movie.find_by(id: params[:id])
+         .destroy
+    redirect_to root_path
+  end
+
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
