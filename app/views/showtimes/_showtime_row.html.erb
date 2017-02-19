@@ -13,8 +13,7 @@
     <%= link_to "edit", edit_movie_showtime_path(showtime.movie, showtime) %> |
     <%= link_to "delete",
           [showtime.movie, showtime],
-          method: :delete,
-          confirm: "This will remove the showtime. Are you sure?"
+          method: :delete
     %>
   </td>
 </tr>
