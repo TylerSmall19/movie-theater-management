@@ -5,7 +5,11 @@ class ShowtimesController < ApplicationController
 
   def new
     @showtime = Movie.find_by(id: params[:movie_id])
-    .showtimes.build
+    .showtimes.new
+  end
+
+  def edit
+    @showtime = Showtime.find_by(id: params[:id])
   end
 
   def create
