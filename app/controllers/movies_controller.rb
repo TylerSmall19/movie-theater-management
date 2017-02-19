@@ -15,12 +15,6 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
-  def destroy
-    Movie.find_by(id: params[:id])
-         .destroy
-    redirect_to root_path
-  end
-
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
@@ -29,6 +23,24 @@ class MoviesController < ApplicationController
       @errors = @movie.errors.full_messages
       render :new
     end
+  end
+
+  def update
+    @movie = Movie.find_by(id: params[:id])
+    @movie.update_attributes(movie_params)
+
+    if @movie.save
+      redirect_to root_path
+    else
+      @errors = @movie.errors.full_messages
+      render :edit
+    end
+  end
+
+  def destroy
+    Movie.find_by(id: params[:id])
+         .destroy
+    redirect_to root_path
   end
 
   private
