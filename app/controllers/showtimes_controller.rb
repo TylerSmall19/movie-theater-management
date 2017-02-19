@@ -5,6 +5,7 @@ class ShowtimesController < ApplicationController
 
   def new
     @movie = Movie.find_by(id: params[:movie_id])
+    @showtime = Showtime.new
   end
 
   def create
@@ -12,7 +13,7 @@ class ShowtimesController < ApplicationController
     @showtime = @movie.showtimes.build(showtime_params)
 
     if @showtime.save
-      redirect_to movie_showtime_path(@movie, @showtime)
+      redirect_to movie_showtimes_path(@movie)
     else
       p @errors = @showtime.errors.full_messages
       render :new

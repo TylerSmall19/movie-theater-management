@@ -8,7 +8,7 @@ class Showtime < ActiveRecord::Base
   validates :price, numericality: true
 
   def pretty_time
-    time.getlocal.strftime("%I:%M %p")
+    time.strftime("%I:%M %p")
   end
 
   def tickets_left
