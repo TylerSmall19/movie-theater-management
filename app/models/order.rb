@@ -21,6 +21,13 @@ class Order < ActiveRecord::Base
     showtime.price
   end
 
+  def self.total_of_orders
+    self.where
+        .not(showtime: nil)
+        .map(&:total)
+        .reduce(:+)
+  end
+
   private
 
   def tickets_available?

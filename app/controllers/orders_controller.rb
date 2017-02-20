@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all.order(:created_at)
+    @orders = Order.order(:created_at)
+    @total = Order.total_of_orders
   end
 
   private
