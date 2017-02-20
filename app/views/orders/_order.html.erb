@@ -1,0 +1,10 @@
+<p> 
+	Order Number: <%= order.id %> | 
+	<% if order.showtime %>
+		Total: <%= number_to_currency order.total %> | 
+		Movie: <span class="movie-title"> <%= order.showtime.movie.title %> </span>
+	<% else %>
+		<!-- If the showtime was deleted, assume the price was refunded. -->
+		Refunded
+	<% end %>
+</p>
