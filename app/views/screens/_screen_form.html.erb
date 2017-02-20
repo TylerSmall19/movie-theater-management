@@ -1,3 +1,7 @@
+<% if errors %>
+	<%= render partial: "shared/errors", locals: { errors: @errors } %>
+<% end %>
+
 <%= form_for screen do |f| %>
 	<%= f.label :number, "Number" %> <br>
 	<%= f.text_field :number %>
@@ -10,4 +14,3 @@
 	<br>
 	<%= f.submit "Save Screen" %>
 <% end %>
-  

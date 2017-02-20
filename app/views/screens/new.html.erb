@@ -1,1 +1,3 @@
-<%= render partial: "screen_form", locals: { screen: Screen.new } %>
+<h1> Add a new Screen </h1>
+
+<%= render partial: "screen_form", locals: { screen: Screen.new, errors: @errors } %>
