@@ -2,6 +2,15 @@
 
 <p> Total Orders: <b> <%= number_to_currency @total %> </b></p>
 
+<%= form_tag '', :method => :get do %>
+	<%= label_tag :filter, "Show Orders For" %>
+  <%= select_tag "movie", 
+  		options_from_collection_for_select(@movies, :id, "title"),
+  		include_blank: true
+  %>
+  <%= submit_tag 'Filter', name: nil %>
+<% end %>
+
 <%= render @orders %>
 
 <%= will_paginate @posts %>
