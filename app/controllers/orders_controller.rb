@@ -48,6 +48,6 @@ class OrdersController < ApplicationController
   end
 
   def filtered?
-    params.include?(:movie) && params[:movie] != ""
+    params.include?(:movie) && params[:movie] != ''
   end
 end
