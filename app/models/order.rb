@@ -10,7 +10,6 @@ class Order < ActiveRecord::Base
             { presence: true }
 
   validates :credit_card, credit_card_number: true
-
   validate :tickets_available?
 
   def last_four_of_card
@@ -22,10 +21,8 @@ class Order < ActiveRecord::Base
   end
 
   def self.total_of_orders
-    self.where
-        .not(showtime: nil)
-        .map(&:total)
-        .reduce(:+)
+    self.joins(:showtime)
+        .sum(:price)
   end
 
   private

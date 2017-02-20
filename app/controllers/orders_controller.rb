@@ -24,7 +24,9 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.order(:created_at)
+    @orders = Order.page(params[:page])
+                   .order(:created_at)
+
     @total = Order.total_of_orders
   end
 
