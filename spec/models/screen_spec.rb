@@ -6,7 +6,7 @@ describe Screen do
   describe "Associations" do
     it { is_expected.to belong_to :theater }
     it { is_expected.to belong_to :movie }
-    it { is_expected.to have_many :showtimes }
+    it { is_expected.to have_many(:showtimes).dependent(:destroy) }
   end
 
   describe "Attributes" do

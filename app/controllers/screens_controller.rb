@@ -27,11 +27,16 @@ class ScreensController < ApplicationController
   	@screen.update_attributes(screen_params)
 
   	if @screen.save
-  		redirect_to @screen
+  		redirect_to screens_path
   	else
   		@errors = @screen.errors.full_messages
   		render :edit
   	end
+  end
+
+  def destroy
+  	Screen.find_by(id: params[:id]).destroy
+  	redirect_to screens_path
   end
 
   private
