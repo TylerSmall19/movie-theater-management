@@ -19,5 +19,8 @@ describe Screen do
 
     it { is_expected.to validate_presence_of :number }
     it { is_expected.to validate_presence_of :capacity }
+
+    it { is_expected.to validate_numericality_of :number }
+    it { is_expected.to validate_numericality_of :capacity }
   end
 end

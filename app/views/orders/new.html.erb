@@ -10,9 +10,7 @@
 <h3> Buy Tickets: </h3>
 
 <% if @errors %>
-  <% @errors.each do |error| %>
-    <%= render partial: "shared/error", locals: { error: error } %>
-  <% end %>
+  <%= render partial: "shared/errors", locals: { errors: @errors } %>
 <% end %>
 
 <%= form_for [@showtime, @order] do |f| %>
