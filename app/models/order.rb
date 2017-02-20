@@ -10,7 +10,6 @@ class Order < ActiveRecord::Base
             { presence: true }
 
   validates :credit_card, credit_card_number: true
-
   validate :tickets_available?
 
   def last_four_of_card
@@ -19,6 +18,16 @@ class Order < ActiveRecord::Base
 
   def total
     showtime.price
+  end
+
+  def self.total_of_orders
+    joins(:showtime).sum(:price)
+  end
+
+  def self.filter_by_id(id)
+    joins(:showtime)
+      .where(showtimes: { movie_id: id })
+      .order(:created_at)
   end
 
   private
