@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
     @showtime = Showtime.find_by(id: params[:showtime_id])
     # Freezes values of tickets_left to resolve a bug
     @tickets = @showtime.tickets_left
-
     @order = @showtime.orders.build(order_params)
 
     if @order.save
@@ -25,17 +24,13 @@ class OrdersController < ApplicationController
   end
 
   def index
-    
     if filtered?
-      @orders = Order.joins(:showtime)
-                     .where(showtimes: { movie_id: params[:movie] })
+      @orders = Order.filter_by_id(params[:movie])
                      .page(params[:page])
-                     .order(:created_at)
     else
-      @orders = Order.page(params[:page])
-                     .order(:created_at)
+      @orders = Order.order(:created_at)
+                     .page(params[:page])
     end
-
     @movies = Movie.all
     @total = Order.total_of_orders
   end
@@ -53,6 +48,6 @@ class OrdersController < ApplicationController
   end
 
   def filtered?
-    params.include? :movie
+    params.include?(:movie) && params[:movie] != ""
   end
 end

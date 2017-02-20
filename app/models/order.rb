@@ -25,6 +25,12 @@ class Order < ActiveRecord::Base
         .sum(:price)
   end
 
+  def self.filter_by_id(id)
+    joins(:showtime)
+      .where(showtimes: { movie_id: id })
+      .order(:created_at)
+  end
+
   private
 
   def tickets_available?
