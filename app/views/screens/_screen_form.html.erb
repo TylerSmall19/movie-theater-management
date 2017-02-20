@@ -2,7 +2,7 @@
 	<% if errors %>
 		<%= render partial: "shared/errors", locals: { errors: @errors } %>
 	<% end %>
-	
+
 	<%= f.text_field :number %>
 	<%= f.text_field :capacity %>
 	<%= f.errors_on :description %>
@@ -16,5 +16,6 @@
 													{ value: screen.movie_id,
 													include_blank: true }
 													) %>
-	<%= f.submit "Save Screen" %>
+													
+	<%= f.submit "Save Screen", class: "btn btn-default justify-content-center col-lg-12" %>
 <% end %>
