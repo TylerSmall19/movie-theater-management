@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170216224004) do
   add_index "orders", ["showtime_id"], name: "index_orders_on_showtime_id", using: :btree
 
   create_table "screens", force: :cascade do |t|
-    t.integer  "theater_id",  null: false
+    t.integer  "theater_id"
     t.integer  "movie_id"
     t.integer  "number",      null: false
     t.integer  "capacity",    null: false
