@@ -11,8 +11,9 @@ describe Ticket do
   end
 
   describe "TODO" do
-    pending "Add/Edit/Delete Screens"
     pending "Bootstrap/CSS"
     pending "Readme"
+    pending "Feature Tests if time"
+    pending "Cleanup DB Migrations"
   end
 end
