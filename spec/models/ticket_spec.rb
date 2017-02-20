@@ -11,9 +11,7 @@ describe Ticket do
   end
 
   describe "TODO" do
-    pending "Sales Tracking"
     pending "Add/Edit/Delete Screens"
-    pending "Edit/Delete Movies"
     pending "Bootstrap/CSS"
     pending "Readme"
   end
