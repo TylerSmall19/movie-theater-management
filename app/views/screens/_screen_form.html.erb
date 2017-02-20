@@ -12,5 +12,14 @@
 	<%= f.label :description, "Description" %> <br>	
 	<%= f.text_area :description, value: screen.description %>
 	<br>
+	<%= f.label :movie, "Movie" %> <br>
+	<%= f.collection_select(:movie_id,
+													Movie.all,
+													:id,
+													:title,
+													value: screen.movie_id,
+													include_blank: true
+													) %>
+	<br>
 	<%= f.submit "Save Screen" %>
 <% end %>
