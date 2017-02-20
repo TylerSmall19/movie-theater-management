@@ -1,19 +1,21 @@
-<h3 class="movie-header">
-  <%= movie.title %>
-</h3>
+<div class="col-md-4">
+	<h3 class="movie-header">
+	  <%= movie.title %>
+	</h3>
 
-<p class="movie-description">
-  <%= movie.description %>
-</p>
+	<p class="movie-description">
+	  <%= movie.description %>
+	</p>
 
-<%= link_to "Read About This Movie", movie_path(movie), {class: "movie-link"} %>
+	<%= link_to "Read About This Movie", movie_path(movie), {class: "movie-link"} %>
 
-<br>
+	<br>
 
-<%= link_to "See Available Tickets", movie_showtimes_path(movie), { class: "ticket-link" } %>
+	<%= link_to "See Available Tickets", movie_showtimes_path(movie), { class: "ticket-link" } %>
 
-<br>
+	<br>
 
-<%= link_to "Edit Movie", edit_movie_path(movie) %> | 
-<%= link_to "Delete Movie", movie, method: :delete %> | 
-<%= link_to "Add Showtimes", new_movie_showtime_path(movie) %>
+	<%= link_to "Edit Movie", edit_movie_path(movie) %> | 
+	<%= link_to "Delete Movie", movie, method: :delete %> | 
+	<%= link_to "Add Showtimes", new_movie_showtime_path(movie) %>
+</div>
