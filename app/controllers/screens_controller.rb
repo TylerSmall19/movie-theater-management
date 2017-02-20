@@ -3,7 +3,9 @@ class ScreensController < ApplicationController
 
   def show; end
 
-  def index; end
+  def index
+  	@screens = Screen.order(:number)
+  end
 
   def edit
   	@screen = Screen.find_by(id: params[:id])

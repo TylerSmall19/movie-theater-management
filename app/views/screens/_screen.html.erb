@@ -1,0 +1,18 @@
+<h3> Screen Number <%= screen.number %> </h3>
+
+<p> Capacity: <%= screen.capacity %> </p>
+
+<% if screen.description %>
+	<p> Description: <%= screen.description %> </p>
+<% end %>
+
+<% if screen.movie %>
+	<p> 
+		Now Playing: <span class="movie-title"> <%= screen.movie.title %> </span> 
+	</p>
+<% end %>
+
+<p> 
+	<%= link_to "edit", edit_screen_path(screen) %> | 
+	<%= link_to "delete", screen, method: :delete %> 
+</p>
