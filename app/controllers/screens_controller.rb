@@ -43,9 +43,9 @@ class ScreensController < ApplicationController
 
   def screen_params
     params.require(:screen)
-          .permit(:number, 
-                  :capacity, 
-                  :description, 
+          .permit(:number,
+                  :capacity,
+                  :description,
                   :movie_id)
   end
 end
