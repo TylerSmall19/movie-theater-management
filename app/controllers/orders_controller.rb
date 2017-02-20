@@ -23,6 +23,10 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params[:id])
   end
 
+  def index
+    @orders = Order.all.order(:created_at)
+  end
+
   private
 
   def order_params
