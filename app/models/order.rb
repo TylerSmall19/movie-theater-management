@@ -21,8 +21,7 @@ class Order < ActiveRecord::Base
   end
 
   def self.total_of_orders
-    self.joins(:showtime)
-        .sum(:price)
+    joins(:showtime).sum(:price)
   end
 
   def self.filter_by_id(id)
