@@ -1,0 +1,25 @@
+<% if errors %>
+	<%= render partial: "shared/errors", locals: { errors: @errors } %>
+<% end %>
+
+<%= form_for screen do |f| %>
+	<%= f.label :number, "Number" %> <br>
+	<%= f.text_field :number %>
+	<br>
+	<%= f.label :capacity, "Capacity" %> <br>
+	<%= f.text_field :capacity %>
+	<br>
+	<%= f.label :description, "Description" %> <br>	
+	<%= f.text_area :description, value: screen.description %>
+	<br>
+	<%= f.label :movie, "Movie" %> <br>
+	<%= f.collection_select(:movie_id,
+													Movie.all,
+													:id,
+													:title,
+													value: screen.movie_id,
+													include_blank: true
+													) %>
+	<br>
+	<%= f.submit "Save Screen" %>
+<% end %>
