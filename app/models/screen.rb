@@ -3,5 +3,5 @@ class Screen < ActiveRecord::Base
   belongs_to :movie
   has_many :showtimes
 
-  validates :number, :capacity, presence: true
+  validates :number, :capacity, presence: true, numericality: true
 end
