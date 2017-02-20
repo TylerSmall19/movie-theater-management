@@ -1,25 +1,36 @@
 <% if errors %>
 	<%= render partial: "shared/errors", locals: { errors: @errors } %>
 <% end %>
-
 <%= form_for screen do |f| %>
-	<%= f.label :number, "Number" %> <br>
-	<%= f.text_field :number %>
-	<br>
-	<%= f.label :capacity, "Capacity" %> <br>
-	<%= f.text_field :capacity %>
-	<br>
-	<%= f.label :description, "Description" %> <br>	
-	<%= f.text_area :description, value: screen.description %>
-	<br>
-	<%= f.label :movie, "Movie" %> <br>
-	<%= f.collection_select(:movie_id,
-													Movie.all,
-													:id,
-													:title,
-													value: screen.movie_id,
-													include_blank: true
-													) %>
-	<br>
-	<%= f.submit "Save Screen" %>
+	<div class="row">
+	<div class="form-groupm col-lg-1 col-md-12">
+		<%= f.label :number, "Number" %> <br>
+		<%= f.text_field :number, class: "form-control" %>
+	</div>
+	
+	<fieldset class="form-group col-lg-1 col-md-12">
+		<%= f.label :capacity, "Capacity" %> 
+		<%= f.text_field :capacity, class: "form-control" %>
+	</fieldset>
+	
+	<fieldset class="form-group col-lg-4 col-md-12">
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, 
+										value: screen.description, 
+										class: "form-control form-control-warning" %>
+	</fieldset>
+
+	<fieldset class="form-group col-lg-6 col-md-12">
+		<%= f.label :movie, "Movie" %> <br>
+		<%= f.collection_select(:movie_id,
+														Movie.all,
+														:id,
+														:title,
+														{ value: screen.movie_id,
+														include_blank: true },
+														{ class: "form-control custom-select" }
+														) %>
+	</fieldset>
+	<%= f.submit "Save Screen", class: "col-12 form-control" %>
+	</div>
 <% end %>
