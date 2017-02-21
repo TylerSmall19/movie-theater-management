@@ -50,6 +50,16 @@ Due to an initial miss-read of the feature list, a Theater was to serve as a hol
 
 If I began this project from scratch, I would avoid such thoughts from the start, clearly define an MVP and begin to design from a bottom-up approach, only adding models when my needs required it, as opposed to my niave approach of designing the models before the need arose.
 
+### Error Handling
+
+#### Using `find_by`
+
+I didn't get that complex with error handling, but I did use `find_by` on every route that needed it as opposed to `find` to support the ability to handle errors more gracefully than just throwing exceptions each time something isn't found. Using `find_by` would enable the later use of an if-gate or logical check in the controller or in the view to display different templates/data if the item isn't found. 
+
+#### Custom Error Pages
+
+Customzed error pages (404, 422, 500, etc.) were not a main focus of mine. The rails error pages seemed to do a decent enough job for the task at hand, and the fact that not everything failed gracefully didn't concern me so much given it's "not a real-world problem". This was one of several features that I didn't feel would add enough overall to the app to justify the effort for the problem, so I ultimately opted to leave it out.
+
 ### End-User Feature Set
 
 The following features are tested and functional:
@@ -62,6 +72,7 @@ The following features are tested and functional:
 * See a list of all showtimes for a particular movie
 * Read about one particular movie
 * View all screens, set description, set playing movies
+* Disabling sales when tickets are sold out
 
 ### Final Notes
 
