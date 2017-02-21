@@ -19,7 +19,6 @@ class ShowtimesController < ApplicationController
     if @showtime.save
       redirect_to movie_showtimes_path(@showtime.movie)
     else
-      @errors = @showtime.errors.full_messages
       render :edit
     end
   end
@@ -31,7 +30,6 @@ class ShowtimesController < ApplicationController
     if @showtime.save
       redirect_to movie_showtimes_path(movie)
     else
-      p @errors = @showtime.errors.full_messages
       render :new
     end
   end
