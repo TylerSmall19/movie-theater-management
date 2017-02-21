@@ -1,21 +1,23 @@
-<%= bootstrap_form_for(screen, label_errors: true) do |f| %>
-	<% if errors %>
-		<%= render partial: "shared/errors", locals: { errors: @errors } %>
+<div class="col-lg-6 mx-auto">
+	<%= bootstrap_form_for(screen, label_errors: true) do |f| %>
+		<% if errors %>
+			<%= render partial: "shared/errors", locals: { errors: @errors } %>
+		<% end %>
+
+		<%= f.text_field :number %>
+		<%= f.text_field :capacity %>
+		<%= f.errors_on :description %>
+		<%= f.text_area :description, 
+										value: screen.description %>
+
+		<%= f.collection_select(:movie_id,
+														Movie.all,
+														:id,
+														:title,
+														{ value: screen.movie_id,
+														include_blank: true }
+														) %>
+
+		<%= f.submit "Save Screen" %>
 	<% end %>
-
-	<%= f.text_field :number %>
-	<%= f.text_field :capacity %>
-	<%= f.errors_on :description %>
-	<%= f.text_area :description, 
-									value: screen.description %>
-
-	<%= f.collection_select(:movie_id,
-													Movie.all,
-													:id,
-													:title,
-													{ value: screen.movie_id,
-													include_blank: true }
-													) %>
-
-	<%= f.submit "Save Screen" %>
-<% end %>
+</div>
