@@ -1,5 +1,7 @@
 # Movie Theater Project
 
+View the app [here](https://theater-manage.herokuapp.com/)
+
 ## What it Does
 
 This project enables users to manage a movie-theater, from the selling of tickets to the updating of showtimes. I have support for adding/removing screens, movies, showtimes, and viewing all orders, also enabling filtering by movie title.
