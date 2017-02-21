@@ -1,40 +1,37 @@
-<h1><%= @showtime.movie.title %></h1>
+<h1 class="text-center"><%= @showtime.movie.title %></h1>
 
-<p> <%= @showtime.movie.description %> </p>
+<div class="row">
+  <div class="col-md-9 mx-auto">
+    <p> <%= @showtime.movie.description %> </p>
 
-<p>
-  <span> Showtime: </span> <%= @showtime.pretty_time %> |
-  <span> Tickets Available: </span> <%= @tickets || @showtime.tickets_left %>
-</p>
+    <p class="lead">
+      <span> Showtime: </span> <%= @showtime.pretty_time %> |
+      <span> Tickets Available: </span> <%= @tickets || @showtime.tickets_left %>
+    </p>
 
-<h3> Buy Tickets: </h3>
+    <h3> Buy Tickets: </h3>
 
-<% if @errors %>
-  <%= render partial: "shared/errors", locals: { errors: @errors } %>
-<% end %>
 
-<%= form_for [@showtime, @order] do |f| %>
-  <%= f.label :name %> <br>
-  <%= f.text_field :name, value: @order.name %>
-  <br>
-  <%= f.label :email %> <br>
-  <%= f.email_field :email, value: @order.email %>
-  <br>
-  <%= f.label :credit_card %> <br>
-  <%= f.text_field :credit_card, value: @order.credit_card %>
-  <br>
-  <%= f.label :expiration %> <br>
-  <%= date_select :order,
-                  :expiration,
-                  value: @order.expiration,
-                  start_year: Time.now.year,
-                  end_year: Time.now.year + 20,
-                  # Ignore day from CC expiration
-                  discard_day: true %>
-  <br> <br>
-  <%= f.submit "Buy Ticket" %>
-<% end %>
+    <%= bootstrap_form_for [@showtime, @order] do |f| %>
+ 
 
-<p/>
+      <%= f.text_field :name, value: @order.name %>
+      <%= f.email_field :email, value: @order.email %>
+      <%= f.text_field :credit_card, value: @order.credit_card %>
+      <%= date_select :order,
+                      :expiration,
+                      value: @order.expiration,
+                      start_year: Time.now.year,
+                      end_year: Time.now.year + 20,
+                      # Ignore day from CC expiration
+                      discard_day: true %>
+      <br><br>
+      <%= f.submit "Buy Ticket" %>
+    <% end %>
 
-<%= link_to "Back To Showtimes", movie_showtimes_path(@showtime.movie) %>
+    <p/>
+
+    <%= link_to "Back To Showtimes", movie_showtimes_path(@showtime.movie) %>
+
+  </div>
+</div>
