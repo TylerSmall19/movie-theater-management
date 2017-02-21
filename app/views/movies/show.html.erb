@@ -1,5 +1,7 @@
-<h1><%= @movie.title %></h1>
+<h1 class="text-center"><%= @movie.title %></h1>
 
-<p> <%= @movie.description %> </p>
+<div class="col-6 mx-auto">
+	<p> <%= @movie.description %> </p>
 
-<%= link_to "Buy Tickets", movie_showtimes_path(@movie) %>
+	<%= link_to "Buy Tickets", movie_showtimes_path(@movie), class: "btn btn-primary btn-lg" %>
+</div>
