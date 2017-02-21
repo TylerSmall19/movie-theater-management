@@ -1,12 +1,11 @@
 <div class="col-lg-6 mx-auto">
-	<%= bootstrap_form_for(screen, label_errors: true) do |f| %>
-		<% if errors %>
-			<%= render partial: "shared/errors", locals: { errors: @errors } %>
-		<% end %>
+	<%= bootstrap_form_for(screen) do |f| %>
+		<%= f.text_field :number,
+										 value: screen.number %>
 
-		<%= f.text_field :number %>
-		<%= f.text_field :capacity %>
-		<%= f.errors_on :description %>
+		<%= f.text_field :capacity,
+										 value: screen.capacity %>
+
 		<%= f.text_area :description, 
 										value: screen.description %>
 

@@ -31,7 +31,6 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to root_path
     else
-      @errors = @movie.errors.full_messages
       render :edit
     end
   end

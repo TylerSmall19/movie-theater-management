@@ -17,7 +17,6 @@ class ScreensController < ApplicationController
     if @screen.save
       redirect_to @screen
     else
-      @errors = @screen.errors.full_messages
       render :new
     end
   end
@@ -29,7 +28,6 @@ class ScreensController < ApplicationController
     if @screen.save
       redirect_to screens_path
     else
-      @errors = @screen.errors.full_messages
       render :edit
     end
   end

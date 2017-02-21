@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
       OrderMailer.confirmation(@order).deliver_later
       redirect_to [@showtime, @order]
     else
-      @errors = @order.errors.full_messages
       render :new
     end
   end
