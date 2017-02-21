@@ -1,13 +1,7 @@
-<% if errors %>
-  <%= render partial: "shared/errors", locals: { errors: @errors } %>
-<% end %>
-
-<%= form_for movie do |f| %>
-  <%= f.label :title %> <br>
-  <%= f.text_field :title, value: movie.title %>
-  <br>
-  <%= f.label :description %><br>
-  <%= f.text_area :description, value: movie.description %>
-  <br>
-  <%= f.submit "Save Movie", disable_with: 'Saving Movie...' %>
-<% end %>
+<div class="col-lg-4 col-m-12 mx-auto">
+	<%= bootstrap_form_for movie do |f| %>
+	  <%= f.text_field :title, value: movie.title %>
+	  <%= f.text_area :description, value: movie.description %>
+	  <%= f.submit "Save Movie", disable_with: 'Saving Movie...' %>
+	<% end %>
+</div>

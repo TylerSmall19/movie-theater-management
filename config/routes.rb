@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :tickets, only: [:show, :update]
   end
 
-  resources :screens
+  resources :screens, except: :show
   resources :orders, only: :index
 end

@@ -4,4 +4,8 @@ class Screen < ActiveRecord::Base
   has_many :showtimes, dependent: :destroy
 
   validates :number, :capacity, presence: true, numericality: true
+
+  def description?
+  	description && description != ""
+  end
 end

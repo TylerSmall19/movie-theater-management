@@ -1,7 +1,7 @@
 class ScreensController < ApplicationController
-  def new; end
-
-  def show; end
+  def new
+    @screen = Screen.new
+  end
 
   def index
     @screens = Screen.order(:number)
@@ -17,7 +17,6 @@ class ScreensController < ApplicationController
     if @screen.save
       redirect_to @screen
     else
-      @errors = @screen.errors.full_messages
       render :new
     end
   end
@@ -29,7 +28,6 @@ class ScreensController < ApplicationController
     if @screen.save
       redirect_to screens_path
     else
-      @errors = @screen.errors.full_messages
       render :edit
     end
   end
