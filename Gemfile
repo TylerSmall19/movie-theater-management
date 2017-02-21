@@ -26,7 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.1.0'
 # Gem to check valid credit card formats
 gem 'credit_card_validations'
-
+# Heroku Produciton
+gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,7 +52,7 @@ end
 group :test do
   # Factorygirl to build mock objects
   gem 'rspec-rails', '~> 3.5'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
