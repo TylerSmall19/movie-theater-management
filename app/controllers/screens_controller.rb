@@ -15,7 +15,7 @@ class ScreensController < ApplicationController
     @screen = Screen.new(screen_params)
 
     if @screen.save
-      redirect_to @screen
+      redirect_to screens_path
     else
       render :new
     end
