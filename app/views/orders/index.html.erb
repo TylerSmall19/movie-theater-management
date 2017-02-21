@@ -1,16 +1,22 @@
-<h1> Showtime Orders </h1>
+<h1 class="text-center"> Showtime Orders </h1>
 
-<p> Total Orders: <b> <%= number_to_currency @total %> </b></p>
+<hr>
 
-<%= form_tag '', :method => :get do %>
-	<%= label_tag :filter, "Show Orders For" %>
-  <%= select_tag "movie", 
-  		options_from_collection_for_select(@movies, :id, "title"),
-  		include_blank: true
-  %>
-  <%= submit_tag 'Filter', name: nil %>
-<% end %>
+<p class="text-center"> Total Orders: <b> <%= number_to_currency @total %> </b></p>
+
+<div class="col-4 mx-auto">
+	<%= bootstrap_form_for '', method: :get, layout: :inline do |f| %>
+	  <%= f.collection_select "movie", 
+	  												@movies, 
+	  												:id, 
+	  												"title",
+	  												hide_label: true,
+	  												include_blank: true %>
+
+	  <%= f.submit 'Filter', name: nil %>
+	<% end %>
+</div>
 
 <%= render @orders %>
 
-<%= will_paginate @posts %>
+<%= will_paginate @orders %>
