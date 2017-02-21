@@ -20,7 +20,6 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to new_movie_showtime_path @movie
     else
-      @errors = @movie.errors.full_messages
       render :new
     end
   end

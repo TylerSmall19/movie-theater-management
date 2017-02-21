@@ -1,5 +1,7 @@
 class ScreensController < ApplicationController
-  def new; end
+  def new
+    @screen = Screen.new
+  end
 
   def index
     @screens = Screen.order(:number)
