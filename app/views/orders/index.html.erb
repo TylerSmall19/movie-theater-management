@@ -1,4 +1,4 @@
-<h1 class="text-center"> Showtime Orders </h1>
+<h1 class="text-center"> Orders </h1>
 
 <hr>
 
@@ -17,6 +17,21 @@
 	<% end %>
 </div>
 
-<%= render @orders %>
 
-<%= will_paginate @orders %>
+<div class="col-md-9 mx-auto pagination-centered">
+
+	<%= will_paginate @orders, class: "pagination col-md-7 mx-auto" %>
+
+	<table class="table table-hover">
+		<thead>
+	    <tr>
+	      <th> Order # </th>
+	      <th> Total Of Order </th>
+	      <th> Movie </th>
+	    </tr>
+	  </thead>
+
+		<%= render @orders %>
+
+	</table>
+</div>

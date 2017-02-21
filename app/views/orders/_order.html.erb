@@ -1,10 +1,9 @@
-<p> 
-	Order Number: <%= order.id %> | 
+<tr> 
+	<td> <%= order.id %> </td> 
 	<% if order.showtime %>
-		Total: <%= number_to_currency order.total %> | 
-		Movie: <span class="movie-title"> <%= order.showtime.movie.title %> </span>
+		<td> <%= number_to_currency order.total %> </td> 
+		<td> <span class="movie-title"> <%= order.showtime.movie.title %> </span> </td>
 	<% else %>
-		<!-- If the showtime was deleted, assume the price was refunded. -->
-		Refunded
+		<td col-span="2"> N/A </td>
 	<% end %>
-</p>
+</tr>
